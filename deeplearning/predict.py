@@ -48,10 +48,7 @@ def get_prediction(model, image_bytes):
     else:
         output = output.squeeze(0)
 
-    # base64_str = (output > 0.5).type(torch.int32)
-
     base64_str = tensor2base64(output)  # 概率分割图
-    # base64_str = (base64_str > 0.5).type(torch.int32)
 
     # 二值化操作
     binary_list = []
@@ -89,12 +86,6 @@ def get_test_result(model, image_bytes, label_bytes):
     rvd = round(RVD(output, label_tensor), 3)
     metrics = dict(Dice=dice, IOU=iou, SEN=sen, VOE=voe, RVD=rvd)
 
-    # 返回分割图像
-    # image = tfs.ToPILImage()(output).convert('L')
-    # output_buffer = io.BytesIO()
-    # image.save(output_buffer, format='JPEG')
-    # pred_image_bytes = output_buffer.getvalue()
-    # base64_str = base64.b64encode(pred_image_bytes).decode()
     base64_str = tensor2base64(output)
 
     return base64_str, metrics

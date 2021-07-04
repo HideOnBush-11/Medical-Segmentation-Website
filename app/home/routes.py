@@ -18,17 +18,6 @@ import json
 @blueprint.route('/index')
 @login_required
 def index():
-    # username = current_user.username
-    # email = current_user.email
-    # PI = PersonalInfo.query.filter_by(username=username).first()
-    # print(PI)
-    # if not PI:
-    #     PI = PersonalInfo(username, email)
-    #     try:
-    #         db.session.add(PI)
-    #         db.session.commit()
-    #     except Exception as e:
-    #         print(e)
     return render_template('page-user.html', segment='index')
 
 

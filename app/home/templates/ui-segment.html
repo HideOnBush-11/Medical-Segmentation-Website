@@ -292,7 +292,6 @@
         });
     }
 
-    // 评价病情并保存
 
 
     function dataURLtoBlob(dataUrl) {
@@ -304,7 +303,7 @@
         return new Blob([u8arr], {type: mime});
     }
 
-    function downloadFile(url, name='hhh') {
+    function downloadFile(url, name='pic') {
         var a = document.createElement('a')
         a.setAttribute("href", url)
         a.setAttribute("download", name)

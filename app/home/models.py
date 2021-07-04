@@ -26,7 +26,7 @@ class Feedback(db.Model):
         self.time = time
 
     def __repr__(self):
-        print('hhh')
+        ...
 
 
 class Record(db.Model):
